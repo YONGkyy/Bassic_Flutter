@@ -17,31 +17,55 @@ class _StateDetailScreenState extends State<StateDetailScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink,
+        
         title: Text("State Detail Screen"),
         actions: [],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "a vastly reduced boilerplate over making a new class every time",
-              style: TextStyle(fontSize: 18 + counter.toDouble()),
-            ),
-            IconButton(
-              onPressed: () {
-                context.read<CounterLogic>().decrease();
-              },
-              icon: Icon(Icons.remove),
-            ),
-            IconButton(
-              onPressed: () {
-                context.read<CounterLogic>().increase();
-              },
-              icon: Icon(Icons.add),
-            ),
-          ],
+      body: Container(
+        padding: EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      context.read<CounterLogic>().decrease();
+                    },
+                    icon: Icon(Icons.remove),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      context.read<CounterLogic>().increase();
+                    },
+                    icon: Icon(Icons.add),
+                  ),
+                ],
+              ),
+              Text(
+                "a vastly reduced boilerplate over making a new class every time",
+              ),
+              Text(
+                "A wrapper around InheritedWidget to make them easier to use and more reusable.",
+              ),
+              SizedBox(height: 50),
+              Text("Register Page"),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Enter email",
+                ),
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Enter password",
+                ),
+              ),
+              ElevatedButton(onPressed: () {}, child: Text("Register")),
+              TextButton(onPressed: () {}, child: Text("Login")),
+            ],
+          ),
         ),
       ),
     );
